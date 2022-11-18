@@ -1,50 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:label_food/screens/splash/splash_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const LabelFood());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class LabelFood extends StatefulWidget {
+  const LabelFood({super.key});
 
+  @override
+  State<LabelFood> createState() => _LabelFoodState();
+}
+
+class _LabelFoodState extends State<LabelFood> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'LABELFOOD',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Center(
-          child: SizedBox(
-            width: 136,
-            height: 138,
-            child: Image(
-              image: AssetImage("assets/images/label_food_light_logo.png"),
-            ),
-          ),
-        ),
-      ),
+      initialRoute: SplashScreen.id,
+      routes: {
+        SplashScreen.id: (context) => const SplashScreen(),
+      },
     );
   }
 }
