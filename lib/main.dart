@@ -22,6 +22,7 @@ class _LabelFoodState extends State<LabelFood> {
       title: 'LABELFOOD',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        fontFamily: 'Poppins',
       ),
       initialRoute: SplashScreen.id,
       routes: {
