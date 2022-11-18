@@ -30,22 +30,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Center(
           child: SizedBox(
-            width: 100,
-            height: 100,
+            width: 136,
+            height: 138,
             child: Image(
               image: AssetImage("assets/images/label_food_light_logo.png"),
             ),
