@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:label_food/screens/splash/splash_screen.dart';
+import 'package:label_food/screens/welcome/welcome_screen.dart';
 
 void main() {
   runApp(const LabelFood());
@@ -24,6 +25,7 @@ class _LabelFoodState extends State<LabelFood> {
       initialRoute: SplashScreen.id,
       routes: {
         SplashScreen.id: (context) => const SplashScreen(),
+        WelcomeScreen.id: (context) => const WelcomeScreen(),
       },
     );
   }
