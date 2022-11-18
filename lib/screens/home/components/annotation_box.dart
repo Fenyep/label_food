@@ -14,7 +14,7 @@ class AnnotationBox extends StatelessWidget {
       decoration: BoxDecoration(
         color: COLOR_WHITE,
         borderRadius: const BorderRadius.all(
-          Radius.circular(30.0),
+          Radius.circular(46.0),
         ),
         boxShadow: [
           BoxShadow(
