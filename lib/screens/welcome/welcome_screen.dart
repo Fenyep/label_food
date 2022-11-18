@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:label_food/screens/home/home_screen.dart';
 import 'package:label_food/utils/utils.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -101,7 +102,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               ),
               addVerticalSpace(26),
               ElevatedButton(
-                onPressed: acceptedTerms ? () {} : null,
+                onPressed: acceptedTerms
+                    ? () {
+                        Navigator.popAndPushNamed(context, HomeScreen.id);
+                      }
+                    : null,
                 style: ElevatedButton.styleFrom(
                     backgroundColor: COLOR_PRIMARY,
                     disabledBackgroundColor: COLOR_GREY,
