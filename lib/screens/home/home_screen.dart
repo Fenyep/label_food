@@ -1,4 +1,6 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:label_food/screens/camera/camera_screen.dart';
 import 'package:label_food/screens/home/components/annotation_box.dart';
 import 'package:label_food/utils/utils.dart';
 
@@ -24,6 +26,26 @@ class _HomeScreenState extends State<HomeScreen> {
     final screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          // obtain a list  of the avallable cameras on the device
+          await availableCameras()
+              .then(
+            (value) => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => CameraScreen(cameras: value),
+              ),
+            ),
+          )
+              .catchError((e) {
+            print(e);
+          });
+        },
+        child: const Icon(
+          Icons.camera_alt,
+        ),
+      ),
       body: SafeArea(
         child: SizedBox(
           width: screenSize.width,

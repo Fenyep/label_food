@@ -2,13 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:label_food/screens/home/home_screen.dart';
 import 'package:label_food/screens/splash/splash_screen.dart';
 import 'package:label_food/screens/welcome/welcome_screen.dart';
+import 'package:label_food/utils/utils.dart';
 
-void main() {
+// List<CameraDescription> cameras = [];
+Future<void> main() async {
+  // Ensure that plugin services are initialized so that `availableCameras`
+  // can be called before `LabelFood()`
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const LabelFood());
 }
 
 class LabelFood extends StatefulWidget {
-  const LabelFood({super.key});
+  const LabelFood({
+    super.key,
+  });
 
   @override
   State<LabelFood> createState() => _LabelFoodState();
@@ -21,7 +28,9 @@ class _LabelFoodState extends State<LabelFood> {
       debugShowCheckedModeBanner: false,
       title: 'LABELFOOD',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        colorScheme: const ColorScheme.light(
+          secondary: COLOR_PRIMARY,
+        ),
         fontFamily: 'Poppins',
       ),
       initialRoute: SplashScreen.id,
