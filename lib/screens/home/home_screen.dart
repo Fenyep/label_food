@@ -2,6 +2,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:label_food/screens/camera/camera_screen.dart';
 import 'package:label_food/screens/home/components/annotation_box.dart';
+import 'package:label_food/theme/theme_manager.dart';
 import 'package:label_food/utils/utils.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,6 +15,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   String annotationStatus = "all done";
+  bool isDark = false;
+  final ThemeManager _themeManager = ThemeManager.getInstance();
 
   void updateAnnotationStatus(String value) {
     setState(() {
@@ -91,9 +94,16 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           GestureDetector(
-                            onTap: () {},
-                            child: const Icon(
-                              Icons.settings,
+                            onTap: () {
+                              setState(() {
+                                isDark = !isDark;
+                              });
+                              _themeManager.toggleTheme(isDark);
+                            },
+                            child: Icon(
+                              _themeManager.themeMode == ThemeMode.light
+                                  ? Icons.light_mode
+                                  : Icons.dark_mode,
                               size: 25.0,
                               color: COLOR_BLACK,
                             ),
