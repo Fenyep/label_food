@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:label_food/screens/counter/counter_screen.dart';
 import 'package:label_food/utils/utils.dart';
 
 class AnnotationBox extends StatelessWidget {
@@ -41,19 +42,29 @@ class AnnotationBox extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
-              width: 56,
-              height: 56,
-              decoration: const BoxDecoration(
-                color: COLOR_PRIMARY,
-                borderRadius: BorderRadius.all(
-                  Radius.circular(30.0),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const CounterScreen(),
+                  ),
+                );
+              },
+              child: Container(
+                width: 56,
+                height: 56,
+                decoration: const BoxDecoration(
+                  color: COLOR_PRIMARY,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(30.0),
+                  ),
                 ),
-              ),
-              child: const Icon(
-                Icons.arrow_forward,
-                color: COLOR_WHITE,
-                size: 36,
+                child: const Icon(
+                  Icons.arrow_forward,
+                  color: COLOR_WHITE,
+                  size: 36,
+                ),
               ),
             ),
           ],

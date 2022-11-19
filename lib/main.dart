@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:label_food/screens/counter/counter_screen.dart';
 import 'package:label_food/screens/home/home_screen.dart';
 import 'package:label_food/screens/splash/splash_screen.dart';
 import 'package:label_food/screens/welcome/welcome_screen.dart';
 import 'package:label_food/theme/theme_constants.dart';
 import 'package:label_food/theme/theme_manager.dart';
 
-// List<CameraDescription> cameras = [];
 Future<void> main() async {
   // Ensure that plugin services are initialized so that `availableCameras`
   // can be called before `LabelFood()`

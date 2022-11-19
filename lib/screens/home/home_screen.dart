@@ -7,7 +7,8 @@ import 'package:label_food/utils/utils.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String id = "welcome_screen";
-  const HomeScreen({super.key});
+  final List<String>? items;
+  const HomeScreen({super.key, this.items});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -186,27 +187,50 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: SizedBox(
                   width: screenSize.width,
                   height: screenSize.height / 1.3,
-                  child: SingleChildScrollView(
-                      child: Column(
-                    children: [
-                      const AnnotationBox(),
-                      addVerticalSpace(18),
-                      const AnnotationBox(),
-                      addVerticalSpace(18),
-                      const AnnotationBox(),
-                      addVerticalSpace(18),
-                      const AnnotationBox(),
-                      addVerticalSpace(18),
-                      const AnnotationBox(),
-                      addVerticalSpace(18),
-                      const AnnotationBox(),
-                      addVerticalSpace(18),
-                      const AnnotationBox(),
-                      addVerticalSpace(18),
-                      const AnnotationBox(),
-                      addVerticalSpace(18),
-                    ],
-                  )),
+                  child: ListView.builder(
+                    // Add a key to the ListView. This makes it possible to
+                    // find the list and scroll through it in the tests.
+                    key: const Key('long_list'),
+                    itemCount: widget.items!.length,
+                    itemBuilder: (context, index) {
+                      return SizedBox(
+                        child: Column(
+                          children: [
+                            Text(
+                              widget.items![index],
+                              // Add a key to the Text widget for each item. This makes
+                              // it possible to look for a particular item in the list
+                              // and verify that the text is correct
+                              key: Key('item_${index}_text'),
+                            ),
+                            const AnnotationBox(),
+                            addVerticalSpace(18),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                  // SingleChildScrollView(
+                  //     child: Column(
+                  //   children: [
+                  //     const AnnotationBox(),
+                  //     addVerticalSpace(18),
+                  //     const AnnotationBox(),
+                  //     addVerticalSpace(18),
+                  //     const AnnotationBox(),
+                  //     addVerticalSpace(18),
+                  //     const AnnotationBox(),
+                  //     addVerticalSpace(18),
+                  //     const AnnotationBox(),
+                  //     addVerticalSpace(18),
+                  //     const AnnotationBox(),
+                  //     addVerticalSpace(18),
+                  //     const AnnotationBox(),
+                  //     addVerticalSpace(18),
+                  //     const AnnotationBox(),
+                  //     addVerticalSpace(18),
+                  //   ],
+                  // )),
                 ),
               ),
             ],

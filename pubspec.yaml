@@ -18,12 +18,19 @@ dependencies:
   camera: ^0.10.0+4
   path_provider: ^2.0.11
   path: ^1.8.2
+  flutter_colorpicker: ^1.0.3
+  mockito: ^5.3.2
+  http: ^0.13.5
 
 dev_dependencies:
+  integration_test:
+    sdk: flutter
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^2.0.0
+  test: ^1.21.4
+  build_runner: ^2.3.0
 
 
 flutter:
